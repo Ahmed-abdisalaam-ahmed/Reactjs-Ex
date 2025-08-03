@@ -22,6 +22,7 @@ const shopCart = ()=>{
     SetCart(updatedCart);
     console.log("Delated", idToDelete);
 };
+
 const handleIncrement = (id)=>{
     console.log(Cart)
  const updatedCart = Cart.map(item => (
