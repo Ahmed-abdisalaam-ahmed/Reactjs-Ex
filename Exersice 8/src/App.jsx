@@ -15,6 +15,7 @@ const App = () => {
            return prev - 1;
           }else {
             clearInterval(timeId);
+            return 0;
           }
         });
       }, 1000);
@@ -29,10 +30,11 @@ const App = () => {
   }
   function handleReset() {
     setRunning(false);
+    setTime(reborn)
 
   }
-  function handleChange (){
-    const value = Number(e.target.value);
+  function handleChange (e){
+    const value = e.target.value;
     setTime(value);
     setReborn(value);
   }
