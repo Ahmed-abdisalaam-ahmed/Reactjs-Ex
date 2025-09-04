@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [user, setUsers] = useState({});
+  const [user, setUsers] = useState(null);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
 
