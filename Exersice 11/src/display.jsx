@@ -1,12 +1,11 @@
-
-const Display = ({Username , isLoggedin}) => {
+const Display = ({Username , islogging}) => {
     function handleLogout(){
-        isLoggedin = false;
+        islogging = false;
     }
   return (
     <div>
       <h1>{`WellCome ${Username}`}</h1>
-      <button onclick={handleLogout} >Logout</button>
+      <button onClick={handleLogout} >Logout</button>
     </div>
   );
 };
