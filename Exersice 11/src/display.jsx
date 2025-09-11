@@ -1,9 +1,9 @@
-const Display = ({Username , islogging}) => {
+const Display = ({Username , handleLoggedOff}) => {
 
   return (
     <div>
       <h1>{`WellCome ${Username}`}</h1>
-      <button onClick={islogging} >Logout</button>
+      <button onClick={handleLoggedOff} >Logout</button>
     </div>
   );
 };
