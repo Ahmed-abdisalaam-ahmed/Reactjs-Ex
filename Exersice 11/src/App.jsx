@@ -15,7 +15,7 @@ const App = () => {
   }
 
   return (
-      isLoggedin ? <Display Username={user} Password={pass} islogging={isLoggedin}/>: 
+      isLoggedin ? <Display Username={user} Password={pass} islogging={ ()=> setLoggedIn(false)}/>: 
       <form onSubmit={handleSubmit}>
         <label>Username:</label>
         <input
