@@ -31,7 +31,6 @@ const App = () => {
   function handleReset() {
     setRunning(false);
     setTime(reborn)
-
   }
   function handleChange (e){
     const value = e.target.value;

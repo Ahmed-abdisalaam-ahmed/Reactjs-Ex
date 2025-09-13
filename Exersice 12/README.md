@@ -1,12 +1,14 @@
-# React + Vite
+### **4. Practical Challenge for Lesson 3.3**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Challenge Title:** *Interactive Counter*
 
-Currently, two official plugins are available:
+**Task:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Create** a `Counter` component that:
+    - Displays a number representing the count.
+    - Includes "Increment" and "Decrement" buttons.
+2. **Implement Event Handling:**
+    - When the "Increment" button is clicked, increase the count by 1.
+    - When the "Decrement" button is clicked, decrease the count by 1 (do not allow negative numbers).
+3. **Use State Management:**
+    - Use `useState` to manage the count.
