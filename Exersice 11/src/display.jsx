@@ -1,6 +1,6 @@
 const Display = ({Username , islogging}) => {
     function handleLogout(){
-        islogging = false;
+        islogging();
     }
   return (
     <div>
