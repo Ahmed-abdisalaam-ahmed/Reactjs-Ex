@@ -1,16 +1,36 @@
-# React + Vite
+## **Simpler Challenge: Double Counter**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### **Scenario**
 
-Currently, two official plugins are available:
+We have **two counters** in a single component (`CounterA` and `CounterB`). We want to manage them **with one reducer**—allowing increment, decrement, and reset actions for each counter.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### **Objectives**
 
-## React Compiler
+1. **Create** a `DoubleCounter` component using the `useReducer` Hook.
+2. **Implement** actions to:
+    - **Increment** Counter A (`INCREMENT_A`)
+    - **Decrement** Counter A (`DECREMENT_A`)
+    - **Increment** Counter B (`INCREMENT_B`)
+    - **Decrement** Counter B (`DECREMENT_B`)
+    - **Reset** both counters to 0 (`RESET_ALL`)
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### **Implementation Outline**
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Define the Initial State and the Reducer**
+    - The initial state has two counters:
+        
+        ```
+        const initialState = {
+          counterA: 0,
+          counterB: 0,
+        };
+        
+        ```
+        
+    - The reducer handles each action type.
+2. **Build the `DoubleCounter` Component**
+    - Use `useReducer(reducer, initialState)`.
+    - Render two separate sections—one for each counter.
+    - Provide buttons for incrementing/decrementing each counter.
+    - Provide a reset button to reset **both** counters at once.
+    ![alt text](image.png)
