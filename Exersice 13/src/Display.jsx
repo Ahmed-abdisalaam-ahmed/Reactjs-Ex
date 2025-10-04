@@ -30,7 +30,7 @@ function handleZero(){
 
 }
 const Display = ()=>{
-    const [state , dispatch] = useReducer (reducer , intialState)
+  const [state , dispatch] = useReducer (reducer , intialState)
   function handletheZero(){
       if (state.CounterA <= 0 || state.CounterB <= 0){
         return true 
