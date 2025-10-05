@@ -98,6 +98,8 @@ const MultipleStepform = () => {
             })
           }
         />
+        <br></br>
+        <br></br>
         <label>Phone:</label>
         <input
           type="number"
@@ -111,6 +113,8 @@ const MultipleStepform = () => {
             })
           }
         />
+        <br></br>
+        <br></br>
         <button onClick={() => dispatch({ type: "PrevStep" })}>Back</button>
         <button onClick={() => dispatch({ type: "NEXT_STEP" })}>Next</button>
       </div>
