@@ -1,16 +1,20 @@
-# React + Vite
+### **Challenge B: Shopping Cart Context**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Scenario**
 
-Currently, two official plugins are available:
+You have a small e-commerce site where multiple components need access to **cart** data—like the number of items in the cart and the total price.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Task**
 
-## React Compiler
+1. **Create** a `CartContext` with an initial empty cart array or object.
+2. **Provide** the cart context in your `App`.
+3. **Add** or **remove** items from the cart in various components (e.g., a `ProductItem` component).
+4. **Display** the cart details in a `CartSummary` component, **without** prop drilling.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Hints**
 
-## Expanding the ESLint configuration
+- You might store `cartItems` in a state hook in `App`.
+- A function like `addToCart(item)` or `removeFromCart(itemId)` can be stored in the context, so you can call it from anywhere.
+- `CartSummary` can show the total count or total price by reading `cartItems` from context.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![alt text](image.png)
