@@ -2019,6 +2019,7 @@ export default App;
 ---
 
 **Explanation:**
+![alt text](image.png)
 
 - **State Management with `useReducer`:**
     - Centralizes state updates, making the logic easier to manage and debug.
