@@ -1,0 +1,30 @@
+.formContainer{
+    font-family: "Roboto", sans-serif;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+}
+.todoInput{
+    font-family: "Roboto", sans-serif;
+    padding: 10px;
+    flex: 1;
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid #d9d9d9;
+    font-size: 16px;
+    margin-left: 3px;
+}
+.todoBtn{
+    font-family: "Roboto", sans-serif;
+    padding:10px 20px;
+    font-size: 16px;
+    background-color: #8f0ff9;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-left: 3px;
+    cursor: pointer;
+}
+.todoBtn:hover{
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
