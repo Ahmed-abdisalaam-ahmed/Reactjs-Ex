@@ -8,7 +8,7 @@ const Student = () => {
       progress: 75,
       instructor: "Sarah Wilson",
       nextLesson: "Components & Props",
-      color: "blue",
+      color: "bg-blue-800",
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ const Student = () => {
       progress: 45,
       instructor: "Mike Johnson",
       nextLesson: "Async/Await",
-      color: "purple",
+      color: "bg-purple-800",
     },
     {
       id: 3,
@@ -24,7 +24,7 @@ const Student = () => {
       progress: 90,
       instructor: "Emily Chen",
       nextLesson: "Color Theory",
-      color: "pink",
+      color: "bg-pink-800",
     },
   ];
 
@@ -73,8 +73,13 @@ const Student = () => {
     { label: "Study Hours", value: "45h", icon: "⏰" },
     { label: "Assignments", value: "12", icon: "✍️" },
   ];
+  const colorClasses = {
+    blue: "",
+    purple: "",
+    pink: "",
+  };
   return (
-    <div className="min-h-screen bg-gray-100 py-8 px-4">
+    <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="bg-white p-6 shadow-sm rounded-sm flex flex-row justify-between items-center flex-wrap">
@@ -118,22 +123,40 @@ const Student = () => {
             <h2 className="text-lg font-semibold mb-4">Courses Progress</h2>
             <div>
               {courses.map((course) => (
-                <div key={course.id} classsName="bg-gray-100 rounded-xl p-4">
-                  <div>
-                    <h2>{course.name}</h2>
-                    <p>%{course.progress}</p>
+                <div key={course.id} className="bg-gray-50 rounded-xl p-4 mb-2">
+                  <div className="flex justify-between items-center mb-2">
+                    <h2 className="font-semibold text-md">{course.name}</h2>
+                    <p className="font-semibold text-sm text-gray-500">
+                      %{course.progress}
+                    </p>
                   </div>
-                  <div></div>
-                  <div>
-                    <p>Next Lesson: {course.nextLesson}</p>
-                    <p>Instructor: {course.instructor}</p>
+                  <div
+                    className={`h-4.5 w-full py-2 rounded-full ${course.color}`}
+                    style={{ width: `${course.progress}%` }}
+                  ></div>
+                  <div className="flex justify-between items-center mb-2">
+                    <p className="font-semibold text-sm text-gray-500">
+                      Next Lesson: {course.nextLesson}
+                    </p>
+                    <p className="font-semibold text-sm text-gray-500">
+                      {course.instructor}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           {/* right section */}
-          <div className="col-span-1  bg-white p-6 rounded-sm shadow-sm "></div>
+          <div className="col-span-1 bg-white p-6 rounded-sm shadow-sm ">
+            {/* upComing  */}
+            <div className="mb-6">
+              <h2 className="text-lg font-semibold mb-4">
+                Upcoming Assignments
+              </h2>
+            </div>
+            {/* Announcement */}
+            <div className="p-6 rounded-sm shadow-sm"></div>
+          </div>
         </div>
       </div>
     </div>
