@@ -27,7 +27,7 @@ const Student = () => {
       color: "bg-pink-800",
     },
   ];
-
+  ("");
   const assignments = [
     {
       id: 1,
@@ -80,7 +80,7 @@ const Student = () => {
   };
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="bg-white p-6 shadow-sm rounded-sm flex flex-row justify-between items-center flex-wrap">
           <div className="">
@@ -147,15 +147,48 @@ const Student = () => {
             </div>
           </div>
           {/* right section */}
-          <div className="col-span-1 bg-white p-6 rounded-sm shadow-sm ">
+          <div className="col-span-1">
             {/* upComing  */}
-            <div className="mb-6">
+            <div className="mb-6 p-4 bg-white rounded-sm shadow-sm">
               <h2 className="text-lg font-semibold mb-4">
                 Upcoming Assignments
               </h2>
+              <div className="">
+                {assignments.map((assignment) => (
+                  <div className="flex items-center justify-between ">
+                    <div>
+                      <h3 className="font-medium text-gray-800">{assignment.title}</h3>
+                      <p className="text-sm text-gray-500">{assignment.course}</p>
+                    </div>
+                 <div className="text-right">
+                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                        ${assignment.status === 'completed' ? 'bg-green-100 text-green-800' :
+                          assignment.status === 'in-progress' ? 'bg-yellow-100 text-yellow-800' :
+                            'bg-red-100 text-red-800'
+                        }`}>
+                        {assignment.status}
+                      </span>
+                      <p className="text-xs text-gray-500 mt-1">Due {assignment.dueDate}</p>
+                    </div>
+                    </div>
+                ))}
+              </div>
             </div>
             {/* Announcement */}
-            <div className="p-6 rounded-sm shadow-sm"></div>
+            <div className="rounded-sm space-y-4">
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-600 mb-4">Announcements</h2>
+              <div className="space-y-4">
+                {announcements.map(announcement => (
+                  <div key={announcement.id} className="border-l-4 border-blue-500 pl-4">
+                    <h3 className="font-medium text-gray-800">{announcement.title}</h3>
+                    <p className="text-sm text-gray-500 mt-1">{announcement.message}</p>
+                    <p className="text-xs text-gray-500 mt-1">{announcement.time}</p>
+                  </div>
+                ))}
+              </div>
+</div>
+            </div>
           </div>
         </div>
       </div>
