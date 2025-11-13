@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import "./index.css";
 
-const MultipleForm = () => {
+const Fullvalidationform = () => {
   const [formdata, setFormData] = useState({
-    username: "",
+    fullName: "",
     email: "",
-    password: "",
-    option: "",
-    checkbox: false,
+    role: "",
+    experience: "",
+    skills: {
+      React: false,
+      JavaScript: false,
+      TypeScript: false,
+      Nodejs: false,
+      Python: false,
+      Java: false,
+      UIDesign: false,
+      APIDevelopment: false,
+    },
+    agreeTerms: false,
+    receiveNotifications: false,
   });
 
   const handleSubmit = (e) => {
@@ -16,7 +27,6 @@ const MultipleForm = () => {
     setFormData({
       username: "",
       email: "",
-      password: "",
       checkbox: false,
       option: "",
     });
@@ -25,7 +35,7 @@ const MultipleForm = () => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "skills" ? checked : value,
     }));
   };
 
@@ -58,18 +68,6 @@ const MultipleForm = () => {
         </label>
 
         <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter your password"
-            value={formdata.password}
-            onChange={handleChange}
-            required
-          />
-        </label>
-
-        <label>
           Select an option:
           <select name="option" value={formdata.option} onChange={handleChange}>
             <option value="">Select a Role...</option>
@@ -77,14 +75,24 @@ const MultipleForm = () => {
             <option value="frontend">Frontend Developer</option>
             <option value="backend">Backend Developer</option>
             <option value="ui/ux">UI/Ux Designer</option>
-            <option value="">Product Manager</option>
+            <option value="product">Product Manager</option>
           </select>
         </label>
-
-        <label className="checkbox-label">
-          <input type="checkbox" name="checkbox" onChange={handleChange} />{" "}
-          Accept Terms
-        </label>
+         <fieldset>
+        <legend>Skills:</legend>
+        {Object.keys(formdata.skills).map((skill) => (
+          <label key={skill}>
+            <input
+              type="checkbox"
+              name={skill}
+              checked={formdata.skills[skill]}
+              onChange={handleChange}
+            />
+            {skill}
+          </label>
+        ))}
+      </fieldset>
+      <br />
 
         <button type="submit">Submit</button>
       </form>
@@ -92,4 +100,4 @@ const MultipleForm = () => {
   );
 };
 
-export default MultipleForm;
+export default Fullvalidationform;

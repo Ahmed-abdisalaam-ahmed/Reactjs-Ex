@@ -73,11 +73,11 @@ const Student = () => {
     { label: "Study Hours", value: "45h", icon: "⏰" },
     { label: "Assignments", value: "12", icon: "✍️" },
   ];
-  const colorClasses = {
-    blue: "",
-    purple: "",
-    pink: "",
-  };
+  // const colorClasses = {
+  //   blue: "",
+  //   purple: "",
+  //   pink: "",
+  // };
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-5xl mx-auto">
