@@ -20,34 +20,69 @@ const Fullvalidationform = () => {
     agreeTerms: false,
     receiveNotifications: false,
   });
+  const [errors, setErrors] = useState({});
 
+  const validationError = () => {
+    const error = {};
+
+    if (!formdata.fullName.trim()) {
+      error.fullName = "Full name is required";
+    }
+    if (!formdata.email.trim()) {
+      error.email = "Email is required";
+    }
+    if (!formdata.role.trim()) {
+      error.role = "Please select a role";
+    }
+    if (!formdata.experience.trim()) {
+      error.experience = "Experience is required";
+    }
+    if (!formdata.skills) {
+      error.skills = "Please select at least one skill";
+    }
+    if (!formdata.agreeTerms) {
+      error.agreeTerms = "You must agree to the terms";
+    }
+    return error;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formdata);
-    setFormData({
-      username: "",
-      email: "",
-      checkbox: false,
-      option: "",
-    });
+    const validate = validationError();
+
+    if (Object.keys(validate).length == 0) {
+      console.log("success");
+    } else {
+      setErrors(validate);
+    }
+    console.log(formdata);
   };
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: type === "skills" ? checked : value,
-    }));
+
+    setFormData((prevData) => {
+      // Checkbox inside skills object
+      if (name in prevData.skills) {
+        return {
+          ...prevData,
+          skills: {
+            ...prevData.skills,
+            [name]: checked,
+          },
+        };
+      }
+      return { ...prevData, [name]: type === "checkbox" ? checked : value };
+    });
   };
 
   return (
-  <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
       <div className="bg-white w-full max-w-xl p-10 rounded-2xl shadow-lg">
         <h2 className="text-2xl font-bold text-center mb-8">
           Developer Application Form
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-
           {/* Full Name */}
           <div>
             <label className="block font-medium mb-1">Full Name</label>
@@ -94,7 +129,9 @@ const Fullvalidationform = () => {
 
           {/* Experience */}
           <div>
-            <label className="block font-medium mb-1">Years of Experience</label>
+            <label className="block font-medium mb-1">
+              Years of Experience
+            </label>
             <input
               type="number"
               name="experience"
@@ -111,7 +148,7 @@ const Fullvalidationform = () => {
 
             <div className="grid grid-cols-2 gap-2">
               {Object.keys(formdata.skills).map((skill) => (
-                <label key={skill} className="flex items-center gap-2">
+                <label key={skill} className="flex 0-center gap-2">
                   <input
                     type="checkbox"
                     name={skill}
