@@ -37,8 +37,10 @@ const Fullvalidationform = () => {
     if (!formdata.experience.trim()) {
       error.experience = "Experience is required";
     }
-    if (!formdata.skills) {
+    if (!Object.values(formdata.skills).some(Boolean)){
       error.skills = "Please select at least one skill";
+    }else{
+      error.skills = ""
     }
     if (!formdata.agreeTerms) {
       error.agreeTerms = "You must agree to the terms";
@@ -47,16 +49,38 @@ const Fullvalidationform = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formdata);
     const validate = validationError();
 
-    if (Object.keys(validate).length == 0) {
-      console.log("success");
+    if (Object.keys(validate).length === 0) {
+      alert("Register is seccussfully");
     } else {
       setErrors(validate);
     }
+          setFormData({
+        fullName: "",
+        email: "",
+        role: "",
+        experience: "",
+        skills: {
+          React: false,
+          JavaScript: false,
+          TypeScript: false,
+          Nodejs: false,
+          Python: false,
+          Java: false,
+          UIDesign: false,
+          APIDevelopment: false,
+        },
+        agreeTerms: false,
+        receiveNotifications: false,
+      });
     console.log(formdata);
   };
+  const EmailConfig = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const fullnameConfig = /^[A-Za-z ]{2,30}$/;
+  const experienceConfig = /^(?:[0-9]|[1-3][0-9]|40)$/;
+
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
@@ -73,6 +97,27 @@ const Fullvalidationform = () => {
       }
       return { ...prevData, [name]: type === "checkbox" ? checked : value };
     });
+    if (name === "email" && !EmailConfig.test(value)) {
+      setErrors((prev) => ({
+        ...prev,
+        email: "Email is invalid",
+      }));
+    } else if (name === "fullName" && !fullnameConfig.test(value)) {
+      setErrors((prev) => ({
+        ...prev,
+        fullName: "Please enter a valid name (2–30 characters, letters only)",
+      }));
+    } else if (name === "experience" && !experienceConfig.test(value)) {
+      setErrors((prev) => ({
+        ...prev,
+        experience: "Experience is invalid",
+      }));
+    } else {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
   return (
@@ -94,6 +139,10 @@ const Fullvalidationform = () => {
               className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-pink-500 outline-none"
               placeholder="Enter your full name"
             />
+            <br />
+            {errors.fullName && (
+              <p className="text-red-600">{errors.fullName}</p>
+            )}
           </div>
 
           {/* Email */}
@@ -107,6 +156,7 @@ const Fullvalidationform = () => {
               className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-pink-500 outline-none"
               placeholder="Enter your email"
             />
+            {errors.email && <p className="text-red-600">{errors.email}</p>}
           </div>
 
           {/* Role */}
@@ -125,6 +175,7 @@ const Fullvalidationform = () => {
               <option value="uiux">UI/UX Designer</option>
               <option value="product">Product Manager</option>
             </select>
+            {errors.role && <p className="text-red-600">{errors.role}</p>}
           </div>
 
           {/* Experience */}
@@ -140,6 +191,9 @@ const Fullvalidationform = () => {
               className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-pink-500 outline-none"
               placeholder="Enter experience in years"
             />
+            {errors.experience && (
+              <p className="text-red-600 capitalize">{errors.experience}</p>
+            )}
           </div>
 
           {/* Skills */}
@@ -160,6 +214,7 @@ const Fullvalidationform = () => {
                 </label>
               ))}
             </div>
+            {errors.skills && <p className="text-red-600">{errors.skills}</p>}
           </div>
 
           {/* Agree Terms */}
@@ -173,6 +228,11 @@ const Fullvalidationform = () => {
             />
             <label>I agree to the terms and conditions</label>
           </div>
+          {errors.agreeTerms === false ? (
+            <p className="hidden"></p>
+          ) : (
+            <p className="text-red-600">{errors.agreeTerms}</p>
+          )}
 
           {/* Notifications */}
           <div className="flex items-center gap-2">
@@ -185,11 +245,10 @@ const Fullvalidationform = () => {
             />
             <label>Receive notifications about new opportunities</label>
           </div>
-
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-pink-600 text-white py-3 rounded-lg font-medium hover:bg-pink-700 transition"
+            className="w-full bg-pink-600 text-white py-3 rounded-lg font-medium hover:bg-pink-700 transition cursor-pointer"
           >
             Submit Application
           </button>
