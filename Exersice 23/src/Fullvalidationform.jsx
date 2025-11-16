@@ -76,6 +76,7 @@ const Fullvalidationform = () => {
       });
     console.log(formdata);
   };
+
   const EmailConfig = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const fullnameConfig = /^[A-Za-z ]{2,30}$/;
   const experienceConfig = /^(?:[0-9]|[1-3][0-9]|40)$/;

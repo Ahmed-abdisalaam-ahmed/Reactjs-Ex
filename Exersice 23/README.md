@@ -1,16 +1,86 @@
-# React + Vite
+### **Practical Exercise |** Developer Application Form Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objective
 
-Currently, two official plugins are available:
+Create a professional job application form with real-time validation and modern UI using React and Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requirements
 
-## React Compiler
+### Form Fields
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Full Name**
+    - Letters only (2-30 characters)
+    - No special characters except spaces
+    - Required field
+2. **Email**
+    - Must be a valid email format
+    - Required field
+    - Real-time validation as user types
+3. **Role Selection**
+    - Dropdown menu with predefined roles
+    - Required field
+    - Options include:
+        - Frontend Developer
+        - Backend Developer
+        - Full Stack Developer
+        - UI/UX Designer
+        - Product Manager
+4. **Years of Experience**
+    - Number input
+    - Range: 0-50 years
+    - Required field
+    - Must be a valid number
+5. **Skills**
+    - Multiple checkbox selection
+    - At least one skill must be selected
+    - Options include:
+        - React
+        - JavaScript
+        - TypeScript
+        - Node.js
+        - Python
+        - Java
+        - UI Design
+        - API Development
+6. **Terms & Conditions**
+    - Checkbox
+    - Must be checked to submit
+    - Required field
+7. **Notifications**
+    - Optional checkbox
+    - For receiving updates
 
-## Expanding the ESLint configuration
+### Validation Requirements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Implement real-time validation
+2. Show error messages immediately after user input
+3. Validate all fields before form submission
+4. Prevent form submission if there are any errors
+
+### UI/UX Requirements
+
+1. Use Tailwind CSS for styling
+2. Responsive design
+3. Clear error messages in red
+4. Visual feedback for form states:
+    - Normal state
+    - Error state
+    - Focus state
+    - Success state
+
+### Code Structure
+
+1. Use functional components
+2. Implement proper state management
+3. Separate validation logic
+4. Handle form submission
+5. Use proper event handling
+
+## Bonus Challenges
+
+1. Add form data persistence using localStorage
+2. Implement a success message modal
+3. Add loading state to submit button
+4. Add field icons
+5. Implement form reset functionality
+![alt text](image.png)
