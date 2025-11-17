@@ -106,7 +106,7 @@ const Fullvalidationform = () => {
     } else if (name === "fullName" && !fullnameConfig.test(value)) {
       setErrors((prev) => ({
         ...prev,
-        fullName: "Please enter a valid name (2–30 characters, letters only)",
+        fullName: "Please enter a valid name (2-30 characters, letters only)",
       }));
     } else if (name === "experience" && !experienceConfig.test(value)) {
       setErrors((prev) => ({
