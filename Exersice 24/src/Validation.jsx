@@ -3,18 +3,20 @@ import { useForm } from "react-hook-form";
 import "./index.css";
 
 const Validation = () => {
-  const { register, handleSubmit, formState: { errors}, reset} = useForm();
+  const { register, handleSubmit, formState: { errors , isSubmitting}, reset} = useForm();
   const subjects = [
    "Mathematics",
    "Science",
    "English"
   ];
-
   const onSubmit = (data) => {
     alert(`my student registration ${JSON.stringify(data)}`)
     console.log(data);
+    localStorage.setItem('registerForm', JSON.stringify(data));
+    reset()
   };
   return (
+
     <div className="bg-blue-950 min-h-screen flex justify-center items-center px-4">
       <div className="bg-blue-800 w-full max-w-3xl shadow-xl p-10 rounded-2xl text-white">
         <h2 className="text-3xl font-bold mb-6 text-center">Student Registration</h2>
