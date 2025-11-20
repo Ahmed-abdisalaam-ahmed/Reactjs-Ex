@@ -1,16 +1,54 @@
-# React + Vite
+### **Practical Exercise for Lesson 5.5**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### **Exercise Title:** Student Registration Form Challenge - Instructions for Students
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Your Task
 
-## React Compiler
+Create a student registration form that collects essential student information with proper validation.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### What You'll Build
 
-## Expanding the ESLint configuration
+A form that collects:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Student Name
+2. Email Address
+3. Grade Level (9-12)
+4. Subject Interests
+
+### Requirements
+
+### 1. Form Fields
+
+- **Student Name**
+    - Must be at least 2 characters
+    - Cannot be empty
+    - Only letters and spaces allowed
+- **Email**
+    - Must be a valid email format ([example@domain.com](mailto:example@domain.com))
+    - Cannot be empty
+- **Grade Level**
+    - Must select one grade from dropdown
+    - Options: Grade 9, 10, 11, 12
+    - Cannot be empty
+- **Subject Interests**
+    - Must select at least one subject
+    - Options: Mathematics, Science, English
+    - Checkbox style selection
+
+### 2. Validation Requirements
+
+- Show error messages in red
+- Validate in real-time as user types
+- Check all fields before submission
+
+
+
+
+### 3. Form Submission
+
+- Log form data to console when submitted
+- Show success alert with form data
+- Only submit if all validations pass![alt text](image.png)
+![alt text](image-1.png)
