@@ -7,33 +7,34 @@ import Categories from "./pages/Categories";
 import RecipesDetails from "./pages/RecipesDetails";
 import CategoresDetails from "./pages/CategoriesDetails";
 
-const Routers = createBrowserRouter([{
+const Routers = createBrowserRouter([
+  {
     path: "/",
-    element:<App/>,
-    errorElement: <NotFound/>,
+    element: <App />,
+    errorElement: <NotFound />,
     children: [
-        {
-            index: true,
-            element: <Home/>
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/Recipes",
+        element: <Recipes />,
+      },
+      {
+        path: "/Recipes/:recipesId",
+        element: <RecipesDetails />,
+      },
+      {
+        path: "/Categories",
+        element: <Categories />,
+        children: {
+          path: ":CategoriesId",
+          element: <CategoresDetails />,
         },
-        {
-            path:"/Recipes",
-            element:<Recipes/>
-        },
-        {
-            path:"/Recipes/:recipesId",
-            element:<RecipesDetails/>
-        },
-        {
-            path:"/Categories",
-            element:<Categories/>
-        },
-        {
-            path:"/Categories/:CategoriesId",
-            element:<CategoresDetails/>
-        }
-
-    ]
-}]);
+      },
+    ],
+  },
+]);
 
 export default Routers;
