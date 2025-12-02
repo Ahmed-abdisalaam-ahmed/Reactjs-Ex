@@ -1,11 +1,11 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import NotFound from "./components/NotFound";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import Categories from "./pages/Categories";
 import RecipesDetails from "./pages/RecipesDetails";
-import CategoresDetails from "./pages/CategoriesDetails";
+import CategoriesDetails from "./pages/CategoriesDetails";
 
 const Routers = createBrowserRouter([
   {
@@ -28,10 +28,12 @@ const Routers = createBrowserRouter([
       {
         path: "/Categories",
         element: <Categories />,
-        children: {
-          path: ":CategoriesId",
-          element: <CategoresDetails />,
-        },
+        children: [
+          {
+            path: ":categoryId",
+            element: <CategoriesDetails />,
+          },
+        ],
       },
     ],
   },
