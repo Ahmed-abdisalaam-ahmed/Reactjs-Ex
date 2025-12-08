@@ -12,7 +12,12 @@ const Routers = createBrowserRouter([
             {
                 index: true,   
                 element: <div>Home</div>,
-            },]
+            },
+            {
+                path: 'post',
+                element: <div></div>,
+            }
+        ]
     }
 ])
 
