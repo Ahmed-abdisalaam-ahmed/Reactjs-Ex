@@ -2,7 +2,10 @@ import React from 'react'
 
 const App = () => {
   return (
-    <div></div>
+    <div>
+      <h1>Exercise 26</h1>
+      <p>This is the main application component.</p>  
+    </div>
   )
 }
 
