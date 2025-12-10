@@ -4,8 +4,6 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { login , isAuthenticated} = useContext(Authcontext);
-  
-  const navigate = useNavigate();
 
   const handleLogin = () =>{
     login();
