@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Postscontext } from "../context/Postscontext";
 
 const useQuery = () => {
@@ -56,14 +56,14 @@ const Home = () => {
         </h1>
         {posts.length > 0 ? (
           <div className="mt-6 p-4 rounded-lg shadow-md bg-white">
-            {posts.map((post) => (
-              <div key={post.id} className="border-b border-gray-300 py-4">
-                <h2 className="font-bold text-xl text-gray-700">
-                  {post.title}
-                </h2>
-                <p className="text-gray-600">{post.content}</p>
-              </div>
+            <ul>
+              {posts.map((post) => (
+              <li key={post.id} className="border-b border-gray-300 py-4">
+                <Link to={`/post/${post.id}`}>{post.title}</Link>
+              </li>
             ))}
+            </ul>
+
           </div>
         ) : (
           <p>Not Found any Posts</p>
