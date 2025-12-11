@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Postscontext } from "../context/Postscontext";
 
 const useQuery = () => {
