@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { Postscontext } from "../context/Postscontext";
 
 const useQuery = () => {
@@ -12,9 +12,6 @@ const Home = () => {
   const [search, setSearch] = useState(searchTerm);
   const { posts } = useContext(Postscontext);
   const navigate = useNavigate();
-  const Posts = posts || [];
-
-  console.log("Posts from context:", Posts);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,10 +51,10 @@ const Home = () => {
         <h1 className="font-bold text-2xl text-gray-600 mt-6 mb-4">
           Posts List
         </h1>
-        {posts.length > 0 ? (
+        {filteredPosts.length > 0 ? (
           <div className="mt-6 p-4 rounded-lg shadow-md bg-white">
             <ul>
-              {posts.map((post) => (
+              {filteredPosts.map((post) => (
               <li key={post.id} className="border-b border-gray-300 py-4">
                 <Link to={`/post/${post.id}`}>{post.title}</Link>
               </li>

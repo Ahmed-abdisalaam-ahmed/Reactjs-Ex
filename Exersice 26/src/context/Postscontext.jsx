@@ -9,12 +9,12 @@ export const PostsProvider = ({children}) => {
     { id: 2, title: 'Understanding React Router', content: 'Content of post 2' },
     { id: 3, title: 'React Hooks in Depth', content: 'Content of post 3' },
   ]);
-     const PostAdd = (newPost) =>{
+     const postAdd = (newPost) =>{
         setPosts((prev)=> [...prev, {...newPost, id : prev.length + 1}]);
      };
 
      return (
-        <Postscontext.Provider value={{posts, PostAdd}}>
+        <Postscontext.Provider value={{posts, postAdd}}>
             {children}
         </Postscontext.Provider>
      )
