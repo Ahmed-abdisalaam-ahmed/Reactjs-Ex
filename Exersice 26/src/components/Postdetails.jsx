@@ -5,7 +5,7 @@ import { Postscontext } from "../context/Postscontext";
 const Postdetails = () => {
   const { id } = useParams();
   const { posts } = useContext(Postscontext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const PostInfo = posts.filter((post) => post.id == id)[0];
 
@@ -21,7 +21,7 @@ const Postdetails = () => {
   const goNext = () => {
     if (nextPost) navigate(`/post/${nextPost.id}`);
   };
-  const isNextDisabled = findPost >= posts.length - 1
+  const isNextDisabled = findPost >= posts.length - 1;
   const isPrevDisabled = findPost == 0;
 
   return (
@@ -30,14 +30,25 @@ const Postdetails = () => {
       <p className="font-bold text-2xl mb-2">Content : {PostInfo.content}</p>
       <div className="space-x-2">
         <button
-          className="bg-red-500 p-2 rounded-lg text-white text-xl cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500;"
-          onClick={goPrev}
+          className={`p-2 rounded-lg text-white text-xl transition
+    ${
+      isPrevDisabled
+        ? "bg-gray-400 cursor-not-allowed opacity-50"
+        : "bg-green-500 cursor-pointer hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500"
+    }`
+  }       onClick={goPrev}
           disabled={isPrevDisabled}
         >
           Prev
         </button>
         <button
-          className="bg-green-500 p-2 rounded-lg text-white text-xl cursor-pointer transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500;"
+          className={`p-2 rounded-lg text-white text-xl transition
+    ${
+      isNextDisabled
+        ? "bg-gray-400 cursor-not-allowed opacity-50"
+        : "bg-green-500 cursor-pointer hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500"
+    }`
+  }
           onClick={goNext}
           disabled={isNextDisabled}
         >
